@@ -38,6 +38,9 @@ $ npm install
 # development
 $ npm run start
 
+# net
+$ npm run start:net
+
 # watch mode
 $ npm run start:dev
 

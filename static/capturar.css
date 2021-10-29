@@ -1,22 +1,22 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap");
 
 /* GLOBAL */
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+    font-family: "Poppins", sans-serif;
 }
-body{
+body {
     background-color: #2e2e2e;
 }
-::selection{
-    color: #FFF;
-    background-color: #65DB5A;
+::selection {
+    color: #fff;
+    background-color: #65db5a;
 }
 
 /* MAIN */
-.main{
+.main {
     width: 100%;
     height: 100vh;
     display: flex;
@@ -24,11 +24,11 @@ body{
     align-items: center;
     justify-content: center;
 }
-.main .title{
+.main .title {
     font-size: 70px;
-    color: #65DB5A;
+    color: #65db5a;
 }
-.main .camera{
+.main .camera {
     width: 50%;
     height: 50%;
     display: flex;
@@ -38,19 +38,23 @@ body{
     border-radius: 10px;
     margin: 40px;
 }
-.main .camera img{
+.main .camera img {
     width: 250px;
 }
-.main .btn-capture{
+.main .btn-capture {
     font-size: 20px;
     padding: 10px 30px;
     border: none;
     border-radius: 5px;
-    color: #FFF;
-    background-color: #65DB5A;
-    transition: all .5s ease;
+    color: #fff;
+    background-color: #65db5a;
+    transition: all 0.5s ease;
     cursor: pointer;
 }
-.main .btn-capture:hover{
+.main .btn-capture:hover {
     transform: scale(1.07);
+}
+
+#canvas {
+    display: none;
 }

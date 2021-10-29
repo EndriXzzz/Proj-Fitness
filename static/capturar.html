@@ -14,11 +14,18 @@
 
     <section class="main">
         <h1 class="title">CAPTURAR</h1>
-        <div class="camera"><img src="img/camera-500x500px.png" alt="cam"></div>
-        <button class="btn-capture">ANALISAR</button>
+        <div class="camera">
+            <img id="photo" src="img/camera-500x500px.png" alt="cam">
+            <video height="500" width="500" id="video">Video stream not available.</video>
+        </div>
+        <button id="startbutton" class="btn-capture">ANALISAR</button>
     </section>
 
+    <canvas id="canvas">
+    </canvas>
+
     <script src="script.js"></script>
+    <script>startup();</script>
 </body>
 
 </html>

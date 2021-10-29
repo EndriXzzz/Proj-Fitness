@@ -1,5 +1,9 @@
-import { Controller, Get } from '@nestjs/common';
+import { Body, Controller, Get, HttpException, Post, Req, UploadedFile, UseInterceptors } from '@nestjs/common';
+import { FileInterceptor } from '@nestjs/platform-express';
 import { execute } from './shared/functions/shell.function';
+import * as fs from "fs";
+import { join } from 'path';
+import * as rawbody from 'raw-body';
 
 @Controller()
 export class AppController {
@@ -9,4 +13,26 @@ export class AppController {
   async getHello() {
     return await execute('python main.py');
   }
+
+  @Post('process')
+  async process(@Req() req) {
+    const raw = await rawbody(req);
+    const text = raw.toString();
+    var base64Data = text.replace(/^data:image\/png;base64,/, "");
+    fs.writeFileSync(join(__dirname, '..', 'images', 'image.png'), base64Data, 'base64');
+    const response = JSON.parse(await execute('python main.py'));
+    if (response.result === true) {
+      return response;
+    } else {
+      throw new HttpException('Pose não reconhecida!', 400);
+    }
+  }
+
+
+  @Post('upload')
+  @UseInterceptors(FileInterceptor('file'))
+  uploadFile(@UploadedFile() file: Express.Multer.File) {
+    fs.writeFileSync(join(__dirname, '..', 'images', 'image.png'), file.buffer);
+  }
+
 }

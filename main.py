@@ -19,7 +19,7 @@ POSE_PAIRS = [ ["Neck", "RShoulder"], ["Neck", "LShoulder"], ["RShoulder", "RElb
                ["LHip", "LKnee"], ["LKnee", "LAnkle"], ["Neck", "Nose"], ["Nose", "REye"],
                ["REye", "REar"], ["Nose", "LEye"], ["LEye", "LEar"] ]
 
-img = cv.imread("images/celular.jpg")
+img = cv.imread("images/image.png")
 
 plt.imshow(img)
 
@@ -64,7 +64,11 @@ def pose_estimation(frame):
     return frame
 
 estimated_image = pose_estimation(img)
-
+# cv.imshow('image window', cv.cvtColor(img, cv.COLOR_BGR2RGB))
+# # add wait key. window waits until user presses a key
+# cv.waitKey(0)
+# # and finally destroy/close all open windows
+# cv.destroyAllWindows()
 def is_human():
     for point in points[:5]:
         if point is None:
@@ -72,9 +76,3 @@ def is_human():
     return True
 print(f'{{ "result": {str(is_human()).lower()}}} ')
 # plt.imshow(cv.cvtColor(img, cv.COLOR_BGR2RGB))
-
-# cv.imshow('image window', cv.cvtColor(img, cv.COLOR_BGR2RGB))
-# # add wait key. window waits until user presses a key
-# cv.waitKey(0)
-# # and finally destroy/close all open windows
-# cv.destroyAllWindows()
