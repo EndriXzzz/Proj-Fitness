@@ -70,7 +70,7 @@ estimated_image = pose_estimation(img)
 # # and finally destroy/close all open windows
 # cv.destroyAllWindows()
 def is_human():
-    for point in points[:5]:
+    for point in points[:3]:
         if point is None:
             return False
     return True
